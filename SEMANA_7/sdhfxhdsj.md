@@ -1,0 +1,215 @@
+<<<<<<< HEAD
+# AVANCE DEL RETO/PROYECTO ICE MAX
+**Empresa:** ICE MAX
+
+**Área de Impacto:** Punto de Venta (POS) y Control de Inventarios
+
+
+## 1. Análisis Técnico y Requerimientos
+
+### 1.1 Análisis Organizacional (Req. 1)
+
+* **Empresa:** *ICE MAX* (cadena de heladerías).
+* **Área:** Operaciones en Punto de Venta (POS).
+* **Problemática:** Registro manual de ventas que ocasiona descuadres en el inventario de insumos (base de helado), errores en los cobros y falta de automatización para aplicar promociones.
+
+### 1.2 Definición del Problema y Reglas de Negocio (Req. 2)
+
+* **Precios Base:**
+* Helado Sencillo (100 ml): $35.00
+* Helado Doble (200 ml): $60.00
+* Litro Familiar (1000 ml): $220.00
+
+
+* **Regla de Descuento:** Si la compra total supera los $300.00, se aplica un **10% de descuento automático**.
+* **Regla de Inventario:** Inicia con un stock inicial de base (en ml). Si la venta supera el stock disponible, se rechaza la transacción.
+* **Cierre de Caja:** Mantiene un flujo continuo en consola hasta solicitar el Cierre de Turno.
+
+### 1.3 Listado de Requerimientos Funcionales (Req. 3)
+
+* **RF1:** Presentar un menú interactivo continuo para el operador.
+* **RF2:** Validar la disponibilidad de insumos en ml antes de procesar cualquier venta.
+* **RF3:** Calcular subtotal, aplicar descuento automático si supera $300 y obtener el total neto.
+* **RF4:** Descontar insumos del inventario global por venta realizada.
+* **RF5:** Acumular las ventas totales y el conteo de clientes para el reporte final de turno.
+
+### 1.4 Clasificación de Datos (Req. 4)
+
+| Variable | Tipo de Dato | Uso / Descripción |
+| --- | --- | --- |
+| `stock_ml` | `float` | Mililitros de base de helado disponibles. |
+| `opcion` | `int` | Selección del menú principal. |
+| `producto` | `int` | Tipo de helado seleccionado (1, 2 o 3). |
+| `cantidad` | `int` | Unidades vendidas. |
+| `subtotal` | `float` | Monto acumulado antes de descuento. |
+| `descuento` | `float` | Monto restado si la compra supera $300. |
+| `total_pagar` | `float` | Monto final cobrado al cliente. |
+| `total_ventas` | `float` | Acumulador global de ingresos del turno. |
+| `clientes` | `int` | Contador de transacciones completadas. |
+
+### 1.5 Operadores del Lenguaje (Req. 5)
+
+* **Matemáticos:** `*` (calcular subtotal), `-` (descuento e inventario), `+` (acumular ingresos y clientes).
+* **Relacionales:** `>=` y `<=` (validar stock y límite de descuento), `!=` (control del ciclo principal).
+* **Lógicos:** `and` (validar selección de productos en rango válido).
+
+### 1.6 Estructuras de Control (Req. 6)
+
+* **Condicional (`if - elif - else`):** Asignar precios/insumos, calcular descuento y evaluar suficiencia de stock.
+* **Iterativa (`while`):** Mantener el menú interactivo activo hasta seleccionar salir.
+* **Iterativa (`for`):** Recorrer el catálogo estructurado de productos.
+
+
+## 2. Pseudocódigo Formal (PSeInt) (Req. 7)
+
+Algoritmo Sistema_ICE_MAX
+	Definir stock_ml, subtotal, descuento, total_pagar, total_ventas Como Real
+Mientras opcion <> 3 Hacer
+		Escribir " ICE MAX POS "
+		Escribir "1. Registrar la venta"
+		Escribir "2. Consultar con el stock"
+		Escribir "Seleccione una opción: "
+		Leer opcion
+		Si opcion = 1 Entonces
+			Escribir "1. Sencillo ($35, 100ml) | 2. Doble ($60, 200ml) | 3. Litro ($220, 1000ml)"
+			Leer producto
+			Escribir "Cantidad de unidades: "
+			Leer cantidad
+			
+			precio < 0; ml < 0
+			Si producto = 1 Entonces precio < 35; ml < 100; FinSi
+			Si producto = 2 Entonces precio < 60; ml < 200; FinSi
+			Si producto = 3 Entonces precio < 220; ml < 1000; FinSi
+			
+			Si (ml * cantidad) <= stock_ml Entonces
+				subtotal < precio * cantidad
+				Si subtotal > 300 Entonces 
+					descuento < subtotal * 0.10
+				Sino 
+					descuento < 0 
+				
+				total_a_pagar <- subtotal - descuento
+				stock_ml < stock_ml - (ml * cantidad)
+				total_de_ventas < total_ventas + total_pagar
+				clientes < clientes + 1
+				
+				Escribir "Total a pagar: $", total_pagar, " (Descuento: $", descuento, ")"
+			Sino
+				Escribir "ERROR: Stock insuficiente."
+			FinSi
+		Sino Si opcion = 2 Entonces
+			Escribir "Stock disponible: ", stock_ml, " ml"
+		Sino Si opcion = 3 Entonces
+			Escribir " RESUMEN DE CIERRE "
+			Escribir "Clientes: ", clientes, " | Ventas Totales: $", total_ventas
+		Finsi
+	Finmientras
+Findelalgoritmo.
+=======
+# AVANCE DEL RETO/PROYECTO ICE MAX
+**Empresa:** ICE MAX
+
+**Área de Impacto:** Punto de Venta (POS) y Control de Inventarios
+
+
+## 1. Análisis Técnico y Requerimientos
+
+### 1.1 Análisis Organizacional (Req. 1)
+
+* **Empresa:** *ICE MAX* (cadena de heladerías).
+* **Área:** Operaciones en Punto de Venta (POS).
+* **Problemática:** Registro manual de ventas que ocasiona descuadres en el inventario de insumos (base de helado), errores en los cobros y falta de automatización para aplicar promociones.
+
+### 1.2 Definición del Problema y Reglas de Negocio (Req. 2)
+
+* **Precios Base:**
+* Helado Sencillo (100 ml): $35.00
+* Helado Doble (200 ml): $60.00
+* Litro Familiar (1000 ml): $220.00
+
+
+* **Regla de Descuento:** Si la compra total supera los $300.00, se aplica un **10% de descuento automático**.
+* **Regla de Inventario:** Inicia con un stock inicial de base (en ml). Si la venta supera el stock disponible, se rechaza la transacción.
+* **Cierre de Caja:** Mantiene un flujo continuo en consola hasta solicitar el Cierre de Turno.
+
+### 1.3 Listado de Requerimientos Funcionales (Req. 3)
+
+* **RF1:** Presentar un menú interactivo continuo para el operador.
+* **RF2:** Validar la disponibilidad de insumos en ml antes de procesar cualquier venta.
+* **RF3:** Calcular subtotal, aplicar descuento automático si supera $300 y obtener el total neto.
+* **RF4:** Descontar insumos del inventario global por venta realizada.
+* **RF5:** Acumular las ventas totales y el conteo de clientes para el reporte final de turno.
+
+### 1.4 Clasificación de Datos (Req. 4)
+
+| Variable | Tipo de Dato | Uso / Descripción |
+| --- | --- | --- |
+| `stock_ml` | `float` | Mililitros de base de helado disponibles. |
+| `opcion` | `int` | Selección del menú principal. |
+| `producto` | `int` | Tipo de helado seleccionado (1, 2 o 3). |
+| `cantidad` | `int` | Unidades vendidas. |
+| `subtotal` | `float` | Monto acumulado antes de descuento. |
+| `descuento` | `float` | Monto restado si la compra supera $300. |
+| `total_pagar` | `float` | Monto final cobrado al cliente. |
+| `total_ventas` | `float` | Acumulador global de ingresos del turno. |
+| `clientes` | `int` | Contador de transacciones completadas. |
+
+### 1.5 Operadores del Lenguaje (Req. 5)
+
+* **Matemáticos:** `*` (calcular subtotal), `-` (descuento e inventario), `+` (acumular ingresos y clientes).
+* **Relacionales:** `>=` y `<=` (validar stock y límite de descuento), `!=` (control del ciclo principal).
+* **Lógicos:** `and` (validar selección de productos en rango válido).
+
+### 1.6 Estructuras de Control (Req. 6)
+
+* **Condicional (`if - elif - else`):** Asignar precios/insumos, calcular descuento y evaluar suficiencia de stock.
+* **Iterativa (`while`):** Mantener el menú interactivo activo hasta seleccionar salir.
+* **Iterativa (`for`):** Recorrer el catálogo estructurado de productos.
+
+
+## 2. Pseudocódigo Formal (PSeInt) (Req. 7)
+
+Algoritmo Sistema_ICE_MAX
+	Definir stock_ml, subtotal, descuento, total_pagar, total_ventas Como Real
+Mientras opcion <> 3 Hacer
+		Escribir " ICE MAX POS "
+		Escribir "1. Registrar la venta"
+		Escribir "2. Consultar con el stock"
+		Escribir "Seleccione una opción: "
+		Leer opcion
+		Si opcion = 1 Entonces
+			Escribir "1. Sencillo ($35, 100ml) | 2. Doble ($60, 200ml) | 3. Litro ($220, 1000ml)"
+			Leer producto
+			Escribir "Cantidad de unidades: "
+			Leer cantidad
+			
+			precio < 0; ml < 0
+			Si producto = 1 Entonces precio < 35; ml < 100; FinSi
+			Si producto = 2 Entonces precio < 60; ml < 200; FinSi
+			Si producto = 3 Entonces precio < 220; ml < 1000; FinSi
+			
+			Si (ml * cantidad) <= stock_ml Entonces
+				subtotal < precio * cantidad
+				Si subtotal > 300 Entonces 
+					descuento < subtotal * 0.10
+				Sino 
+					descuento < 0 
+				
+				total_a_pagar <- subtotal - descuento
+				stock_ml < stock_ml - (ml * cantidad)
+				total_de_ventas < total_ventas + total_pagar
+				clientes < clientes + 1
+				
+				Escribir "Total a pagar: $", total_pagar, " (Descuento: $", descuento, ")"
+			Sino
+				Escribir "ERROR: Stock insuficiente."
+			FinSi
+		Sino Si opcion = 2 Entonces
+			Escribir "Stock disponible: ", stock_ml, " ml"
+		Sino Si opcion = 3 Entonces
+			Escribir " RESUMEN DE CIERRE "
+			Escribir "Clientes: ", clientes, " | Ventas Totales: $", total_ventas
+		Finsi
+	Finmientras
+Findelalgoritmo.
+>>>>>>> 4196994d4ae4b5b8ecef87fc13c75e88aa02fdaf
