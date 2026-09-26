@@ -14,7 +14,7 @@ import os
 import pdb  # Módulo estándar para depuración de código
 
 # =============================================================================
-# FUNCIONES DE INICIALIZACIÓN Y CONFIGURACIÓN DEL ENTORNO
+# FUNCIONES DE INICIALIZACIÓN Y CONFIGURACIÓN DEL ENTORNO 🫪🫪🫪🫪🫪
 # =============================================================================
 
 def inicializar_archivos():
@@ -71,7 +71,7 @@ def pantalla_carga():
     print("\n[✓] Sistema inicializado correctamente con éxito.\n")
 
 # =============================================================================
-# CAPTURA Y ESTRUCTURACIÓN DE DATOS
+# CAPTURA Y ESTRUCTURACIÓN DE DATOS 🫪🫪🫪🫪🫪
 # =============================================================================
 
 def capturar_fecha():
@@ -103,7 +103,7 @@ def capturar_fecha():
             print(f"[!] Error en la captura de fecha: {e}. Intente nuevamente.")
 
 # =============================================================================
-# TEMPORIZADOR Y CONTROL DE INACTIVIDAD
+# TEMPORIZADOR Y CONTROL DE INACTIVIDAD 🫪🫪🫪🫪🫪
 # =============================================================================
 
 def verificar_inactividad_con_for():
@@ -135,7 +135,7 @@ def verificar_inactividad_con_for():
             print("[!] Respuesta no válida. Escriba 'si' o 'no'.")
 
 # =============================================================================
-# PERSISTENCIA EN ARCHIVOS DE TEXTO (MANEJO DE EXCEPCIONES)
+# PERSISTENCIA EN ARCHIVOS DE TEXTO (MANEJO DE EXCEPCIONES) 🫪🫪🫪🫪🫪
 # =============================================================================
 
 def leer_archivo_inventario():
@@ -204,7 +204,7 @@ def escribir_anexar_inventario(fecha_tupla):
         print(f"[!] Error durante la escritura de la persistencia: {e}")
 
 # =============================================================================
-# PRUEBA DE DEPURACIÓN TÉCNICA (PDB)
+# PRUEBA DE DEPURACIÓN TÉCNICA (PDB) 🫪🫪🫪🫪🫪
 # =============================================================================
 
 def prueba_debugging_pdb(fecha_tupla):
@@ -228,7 +228,7 @@ def prueba_debugging_pdb(fecha_tupla):
     print(" [✓] Depuración de lógica verificada exitosamente con PDB.")
 
 # =============================================================================
-# BUCLE PRINCIPAL Y MENÚ COMO MATRIZ
+# BUCLE PRINCIPAL Y MENÚ COMO MATRIZ 🫪🫪🫪🫪🫪
 # =============================================================================
 
 def ejecutar_menu_matriz(usuario, fecha_tupla):
